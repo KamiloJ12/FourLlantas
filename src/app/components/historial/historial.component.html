@@ -18,66 +18,44 @@
     </div> -->
 
       <div class="card-group" *ngIf="servicios.length != 0">
-        <div class="card" *ngFor="let servicio of servicios">
-          <img src="../../../assets/images/navbar/Imagen1.png" class="card-img-top" alt="..." height="200px">
-          <div class="card-body">
-            <h5 class="card-title">Orden # {{servicio.id}}</h5>
-            <p class="card-text">Atendido por: {{servicio.mecanico.nombres}} {{servicio.mecanico.apellidos}}</p>
-            <button type="button" class="btn btn-primary btn-lg btn-block " data-toggle="modal" data-target="#exampleModalCenter">Ver</button>
+
+        <ng-container *ngFor="let servicio of servicios">
+          <div class="card">
+            <img src="../../../assets/images/navbar/Imagen1.png" class="card-img-top" alt="..." height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Orden # {{servicio.id}}</h5>
+              <p class="card-text">Atendido por: {{servicio.mecanico.nombres}} {{servicio.mecanico.apellidos}}</p>
+              <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" [attr.data-bs-target]="'#servicios-'+servicio.id">Ver</button>
+            </div>
           </div>
-        </div>
+
+          <!-- Modal -->
+          <div class="modal fade modal-dialog-centered" id="servicios-{{servicio.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Servicio No{{servicio.id}}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
       </div>
 
       <div class="justify-content-center align-items-center" *ngIf="servicios.length == 0">
         <h3 class="text-center m-2">Tus servicios se mostraran aquí</h3> 
         <img src="../../../assets/images/pixlr-bg-result.png" width="500px"> 
       </div>
-     <!-- Modal -->
-    
-     <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Informacion</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Servicio</th>
-                        <th scope="col">cantidad</th>
-                        <th scope="col">Precios</th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
+     
+      
 
-                  <div style="text-align:center">
-                  <button type="button" class="btn btn-primary btn-lg" >$50.000</button>
-                 </div>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             
-            </div>
-          </div>
-        </div>
-      </div> -->
-  
     </div>
     
     
