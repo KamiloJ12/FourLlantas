@@ -1,0 +1,84 @@
+<app-navbar (onToggleSideNav)="onToggleSideNav($event)"></app-navbar>
+
+<div class="home" [ngClass]="isSideNavCollapsed ? 'closed': ''">
+    
+    <div class="m-4 p-4 d-flex justify-content-center align-items-center" style=" background-color: whitesmoke; min-height: 93vh;" >
+
+    <!-- <div class="card-group">
+        <div class="card ml-4 mt-4 mb-4" >
+          <img src="../../../assets/images/navbar/Imagen1.png" style="height: 200px; " >
+          <div class="card-body">
+            <h5 class="card-title">Orden #1 </h5>
+            <p class="card-text">Atendido por:</p>
+           
+
+            <button type="button" class="btn btn-primary btn-lg btn-block " data-toggle="modal" data-target="#exampleModalCenter">Ver</button>
+          </div>
+        </div>
+    </div> -->
+
+      <div class="card-group" *ngIf="servicios.length != 0">
+        <div class="card" *ngFor="let servicio of servicios">
+          <img src="../../../assets/images/navbar/Imagen1.png" class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title">Orden # {{servicio.id}}</h5>
+            <p class="card-text">Atendido por: {{servicio.mecanico.nombres}} {{servicio.mecanico.apellidos}}</p>
+            <button type="button" class="btn btn-primary btn-lg btn-block " data-toggle="modal" data-target="#exampleModalCenter">Ver</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="justify-content-center align-items-center" *ngIf="servicios.length == 0">
+        <h3 class="text-center m-2">Tus servicios se mostraran aquí</h3> 
+        <img src="../../../assets/images/pixlr-bg-result.png" width="500px"> 
+      </div>
+     <!-- Modal -->
+    
+     <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Informacion</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Servicio</th>
+                        <th scope="col">cantidad</th>
+                        <th scope="col">Precios</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+
+                  <div style="text-align:center">
+                  <button type="button" class="btn btn-primary btn-lg" >$50.000</button>
+                 </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             
+            </div>
+          </div>
+        </div>
+      </div> -->
+  
+    </div>
+    
+    
+</div>

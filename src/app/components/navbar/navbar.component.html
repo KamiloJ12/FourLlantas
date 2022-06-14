@@ -1,0 +1,58 @@
+<nav class="sidebar" [ngClass]="collapsed ? 'closed': ''">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="../../../assets/images/navbar/logo.png" alt="">
+            </span>
+
+            <div class="text logo-text">
+                <span class="name">FOUR LLANTAS</span>
+                <span class="profession">{{nombreUsuario}}</span>
+            </div>
+        </div>
+
+        <i class='bx bx-chevron-right toggle' (click)="toogleOnClick()"></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <li class="search-box">
+                <i class='bx bx-search icon' (click)="searchOnClick()"></i>
+                <input type="text" placeholder="Buscar..." (keyup)="search($event)">
+            </li>
+
+            <ul class="menu-links">
+                <li class="nav-link" *ngFor="let data of navData" >
+                    <a [routerLink]="[data.routeLink]" routerLinkActive="active">
+                        <i [class]="data.icon" ></i>
+                        <span class="text nav-text">{{data.label}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li class="">
+                <a (click)="logout()">
+                    <i class='bx bx-log-out icon' ></i>
+                    <span class="text nav-text">Cerrar Sesion</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Modo Noche</span>
+
+                <div class="toggle-switch" (click)="switchOnClick()">
+                    <span class="switch"></span>
+                </div>
+            </li>
+            
+        </div>
+    </div>
+
+</nav>
