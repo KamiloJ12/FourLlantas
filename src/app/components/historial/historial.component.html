@@ -25,7 +25,13 @@
             <div class="card-body">
               <h5 class="card-title">Orden # {{servicio.id}}</h5>
               <p class="card-text">Atendido por: {{servicio.mecanico.nombres}} {{servicio.mecanico.apellidos}}</p>
+
+
+             
+
+              <div style="text-align:center">
               <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" [attr.data-bs-target]="'#servicios-'+servicio.id">Ver</button>
+            </div>
             </div>
           </div>
 
