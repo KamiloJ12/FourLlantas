@@ -46,5 +46,16 @@ export class HistorialComponent implements OnInit {
     this.isSideNavCollapsed = data.collapsed;
   }
 
+  convertirFecha(fecha:string): string{
+    return fecha.substring(0, 10);
+  }
+
+  toUpperCase(str: string): string{
+    return str.toUpperCase();
+  }
   
+  parseMoney(str: string): string{
+    let money = Number(str);
+    return money.toLocaleString("es-CO");
+  }
 }
